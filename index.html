@@ -44,6 +44,13 @@
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 40; display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; background: linear-gradient(rgba(10,11,15,.92), rgba(10,11,15,0)); }
   .mono-mark { font: 24px var(--display); text-decoration: none; letter-spacing: .04em; }
   .mono-mark span { color: var(--amber); }
+  nav { background: rgba(10,11,15,.82); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+  .brand .mono-mark { padding-right: 14px; border-right: 1px solid var(--line); line-height: 1; }
+  .brand-txt { display: flex; flex-direction: column; line-height: 1.1; }
+  .brand-txt b { font: 400 19px var(--display); text-transform: uppercase; letter-spacing: .03em; }
+  .brand-txt small { font: 700 10px var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--amber); margin-top: 3px; }
+  @media (max-width: 520px) { .brand-txt small { font-size: 8.5px; letter-spacing: .08em; } .brand-txt b { font-size: 16px; } }
   nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; align-items: center; }
   nav .txt a { font: 700 12px var(--mono); letter-spacing: .14em; text-transform: uppercase; text-decoration: none; }
   nav .txt a:hover { color: var(--amber); }
@@ -73,7 +80,7 @@
   .stats { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .stat { padding: 30px 20px; border-right: 1px solid var(--line); }
   .stat:last-child { border-right: 0; }
-  .stat b { display: block; font: clamp(52px, 6.5vw, 92px)/.9 var(--display); }
+  .stat b { display: block; font: clamp(34px, 3.3vw, 50px)/1 var(--display); white-space: nowrap; }
   .stat:nth-child(odd) b { color: transparent; -webkit-text-stroke: 2px var(--amber); }
   .stat span { display: block; margin-top: 10px; color: var(--muted); font: 500 13px/1.4 var(--mono); text-transform: uppercase; letter-spacing: .08em; }
 
@@ -155,7 +162,7 @@
     .stats { grid-template-columns: 1fr 1fr; }
     .stat:nth-child(2) { border-right: 0; }
     .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
-    .stat b { font-size: 48px; }
+    .stat b { font-size: clamp(24px, 7.4vw, 40px); }
     .reels, .skill-cols, .quote-grid { grid-template-columns: 1fr; }
     .reels { gap: 44px; }
     .divider { margin-top: 64px; gap: 14px; }
@@ -184,7 +191,7 @@
 </svg>
 
 <nav>
-  <a class="mono-mark" href="#top" aria-label="Back to top">J<span>L</span></a>
+  <a class="brand" href="#top" aria-label="Jacob Lavender, back to top"><span class="mono-mark">J<span>L</span></span><span class="brand-txt"><b>Jacob Lavender</b><small>Lead Combat &amp; Systems Designer</small></span></a>
   <ul>
     <li class="txt"><a href="#reels">Reels</a></li>
     <li class="txt"><a href="#work">Work</a></li>
@@ -200,8 +207,8 @@
 <header class="hero" id="top">
   <div class="mosaic" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="label">Lead Combat &amp; Systems Designer &nbsp;/&nbsp; 10 years &nbsp;/&nbsp; AAA</div>
-    <h1 class="display">Jacob<br><span class="outline">Lavender</span></h1>
+    <div class="label">10 years &nbsp;/&nbsp; AAA &nbsp;/&nbsp; Fortnite · Borderlands · UE5</div>
+    <h1 class="display">Combat that<br><span class="outline">hits back</span></h1>
     <p class="tagline">Combat. Abilities. Enemy AI. <em>The systems that hold it together.</em></p>
     <p class="intro">Designed and built combat for Fortnite, Borderlands 3, Borderlands 2 VR, and Unreal Engine 5 projects, and led the teams that made it.</p>
   </div>
@@ -209,9 +216,9 @@
 
 <div class="wrap">
   <div class="stats reveal">
-    <div class="stat"><b>10</b><span>Years designing combat &amp; systems</span></div>
-    <div class="stat"><b>126M+</b><span>Fortnite players in one month, its biggest season</span></div>
-    <div class="stat"><b>30M+</b><span>Borderlands 3 &amp; Wonderlands copies sold</span></div>
+    <div class="stat"><b>10 Years</b><span>Designing combat &amp; systems</span></div>
+    <div class="stat"><b>126 Million+</b><span>Fortnite players in one month, its biggest season</span></div>
+    <div class="stat"><b>30 Million+</b><span>Borderlands 3 &amp; Wonderlands copies sold</span></div>
     <div class="stat"><b>2x</b><span>Best FPS (Shacknews) for Borderlands 3 &amp; Wonderlands</span></div>
   </div>
 </div>
@@ -228,7 +235,7 @@
           <div class="label">Epic Games · UE4 / UE5 · 2020 – 2023</div>
           <h3 class="display">Fortnite</h3>
           <div class="role">Gameplay Designer III · 8 live seasons</div>
-          <p>Shipped 11 weapons and items across 8 seasons, including its biggest (126M+ players in one month); built War Effort, Chrome phasing, and the melee system on GAS.</p>
+          <p>Shipped 11 weapons and items across 8 seasons, including its biggest (126 million+ players in one month); built War Effort, Chrome phasing, and the melee system on GAS.</p>
         </div>
       </article>
       <article class="reveal">
