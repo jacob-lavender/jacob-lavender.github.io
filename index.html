@@ -397,16 +397,16 @@
   const WX = name => `img/${name}.jpg`;
   const steam = (app, hash) => `${SS}${app}/ss_${hash}.600x338.jpg`;
 
-  // Hero wall of game art: three rows, each doubled so the drift loops seamlessly
+  // Hero wall of game art: top row (mostly off-screen) is other work, middle is Gearbox, bottom is Fortnite seasons.
+  // Short rows repeat to 9+ images, then each row is doubled so the drift loops seamlessly on wide screens.
   const rows = [
-    [steam(397540, '9868ee40f39749a4c8222502cf86525ee32c1bef'), WX('fortnite'), steam(991260, '68e8ee4f8014fff816cff49d7f48ba418d14ae1f'),
-     steam(1286680, '9eec41e5b6d47e4a63fb7f0a0eed4819baeee4f5'), WX('bounty-of-blood'), steam(397540, '3531d9f91265d94fc06f6587eba1ca49f2c423d1')],
-    [WX('penn-teller-vr'), steam(397540, '624638e46ed590d4bb1835558a5ab0981f7baadd'), steam(1286680, 'e7499467fb6dbff279fdffd96ec380b157c5791a'),
-     steam(991260, '5de815a5212ecd32b3e35080bc8a1513d7c74099'), steam(397540, 'f983c0c1cc566b8ca21a6c45e6f044b57aff0f0f'), WX('mouse-playhouse-vr')],
-    [WX('borderlands2vr'), steam(397540, 'f2053d688ec55f2269c47b24313539938bef9064'), steam(1286680, 'ca4fd814a118de1f7cc0ce8c944e9885a58f20f2'),
-     WX('borderlands3'), steam(991260, '158df652c23393018a1c68a5308fdb828798cc9c'), WX('people-can-fly')],
+    [WX('penn-teller-vr'), steam(397540, '9868ee40f39749a4c8222502cf86525ee32c1bef'), WX('jar-of-sparks'), WX('mouse-playhouse-vr'),
+     steam(1286680, '9eec41e5b6d47e4a63fb7f0a0eed4819baeee4f5'), WX('people-can-fly'), steam(991260, '68e8ee4f8014fff816cff49d7f48ba418d14ae1f')],
+    [WX('borderlands3'), WX('bounty-of-blood-capsule'), WX('borderlands2vr'), WX('wonderlands-capsule'), WX('bl3-capsule'), WX('bl2vr-capsule')],
+    ['c2s6', 'c2s7', 'c2s8', 'c3s1', 'c3s2', 'c3s3', 'c3s4', 'c4s1', 'c4s2'].map(s => WX(`fortnite-${s}`)),
   ];
-  document.querySelector('.mosaic').innerHTML = rows.map(r =>
+  const fill = r => { let a = [...r]; while (a.length < 9) a = [...a, ...r]; return a; };
+  document.querySelector('.mosaic').innerHTML = rows.map(fill).map(r =>
     `<div class="row">${[...r, ...r].map(u => `<img src="${u}" alt="">`).join('')}</div>`).join('');
 
   // Reels load only when clicked: shows a thumbnail, keeps the page fast
